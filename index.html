@@ -7,9 +7,7 @@
     <title>Ecommerce</title>
     <link rel="stylesheet" href="styless.css">
 </head>
-<body>
-    <header class="header">
-        
+<body class=""> 
         <nav class="Container">
             <div class="Content_acad">
             <img src="./img/img/favicon.png" alt="Academlo">
@@ -25,15 +23,17 @@
 
             <div class="menu_desptok">
                 <li><a href="#"><p class="color">HOME</p></a></li>
-                <li><a href="#"><p>Products</p></a></li>
+                <li><a href="#"><p class="color1">Products</p></a></li>
             </div>
 
             </div>
-            <!--  -->
+            
             <div><p></p></div>
             <div class="content_img">
-            <img src="./img/img/luna.png" alt="luna">
-            <img src="./img/img/carro-de-la-carretilla.png" alt="carrito">
+            <img id="sol" class="hidden sol" src="./img/img/soleado.png" alt="sol">   
+            <img id="luna" class="luna" src="./img/img/luna.png" alt="luna">
+            <img id="icon_carrito" src="./img/img/carro-de-la-carretilla.png" alt="carrito">
+            <div id="amount" class="count">0</div>
             <div id="icon_burger" class="icon_burger icon_burger-show">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
                         <path d="M85.333,0h64c47.128,0,85.333,38.205,85.333,85.333v64c0,47.128-38.205,85.333-85.333,85.333h-64   C38.205,234.667,0,196.462,0,149.333v-64C0,38.205,38.205,0,85.333,0z"/>
@@ -45,7 +45,30 @@
             </div>
         </nav>
 
-    </header>
+        <div id="show" class="cart show-cart">
+            <div id="cart_close" class="cart_close">
+                <svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="30px" height="30px">    <path d="M 7 4 C 6.744125 4 6.4879687 4.0974687 6.2929688 4.2929688 L 4.2929688 6.2929688 C 3.9019687 6.6839688 3.9019687 7.3170313 4.2929688 7.7070312 L 11.585938 15 L 4.2929688 22.292969 C 3.9019687 22.683969 3.9019687 23.317031 4.2929688 23.707031 L 6.2929688 25.707031 C 6.6839688 26.098031 7.3170313 26.098031 7.7070312 25.707031 L 15 18.414062 L 22.292969 25.707031 C 22.682969 26.098031 23.317031 26.098031 23.707031 25.707031 L 25.707031 23.707031 C 26.098031 23.316031 26.098031 22.682969 25.707031 22.292969 L 18.414062 15 L 25.707031 7.7070312 C 26.098031 7.3170312 26.098031 6.6829688 25.707031 6.2929688 L 23.707031 4.2929688 C 23.316031 3.9019687 22.682969 3.9019687 22.292969 4.2929688 L 15 11.585938 L 7.7070312 4.2929688 C 7.5115312 4.0974687 7.255875 4 7 4 z"/></svg>
+            </div>
+            <h2 class="cart_tittle">My Cart</h2>
+            <div class="cart_container">
+                <div class="cart_empty delete">
+                    <img src="./img/img/empty-cart.png" alt="empty cart">
+                    <h2>Your cart is empty</h2>
+                    <p>You can add items to your cart by clicking on the "+" button on the product page.</p>
+                </div>
+
+                <article id="carduno" class="cart__card card-uno">
+                    
+                </article>
+                
+            </div>
+            <div id="#price" class="cart_prices">
+                 <span class="cart_prices-item">
+                    <span>0 items</span>
+                </span>
+                <span class="cart_prices-total">$0.00</span>
+            </div>
+        </div>
 
 <main>
     <section>
@@ -79,26 +102,26 @@
             <ul class="Content_filtros">
                 <li class="Products_item Products_line">
                     <h2></h2>
-                    <h3 class="Products_Title">Show All</h3>
+                    <h3 class="Products_Title" data-filter='all'>Show All</h3>
                     <h4 class="Products_Stock">Show all products</h4>
                 </li>
                 <li class="Products_item Products_line">
                     <h2></h2>
-                    <h3 class="Products_Title">Hoddies</h3>
+                    <h3 class="Products_Title" data-filter='.hod'>Hoddies</h3>
                     <h4 class="Products_Stock">3 products</h4>
                 </li>
                 <li class="Products_item Products_line">
                     <h2></h2>
-                    <h3 class="Products_Title">Shirts</h3>
+                    <h3 class="Products_Title" data-filter='.shir'>Shirts</h3>
                     <h4 class="Products_Stock">4 products</h4>
                 </li>
                 <li class="Products_item">
-                    <h3 class="Products_Title">Sweatshirts</h3>
+                    <h3 class="Products_Title" data-filter='.swea'>Sweatshirts</h3>
                     <h4 class="Products_Stock">4 products</h4>
                 </li>
             </ul>
-            <div class="Products_content grid">
-                <article class="Products_card">
+             <div class="Products_content grid" id="contentProducts">
+            <!-- <article class="Products_card hod">
                     <div class="Products_img">
                         <img src="./img/img/featured1.png" alt="Hoddies" class="Products_img1">
                     </div>
@@ -107,12 +130,12 @@
                         <span class="Products_cant">|  Stock: 10</span>
                     </h2>
                     <h3>Hoddies</h3>
-                    <button class="button Products_btn">
-                        <p>+</p>
+                    <button id="btnOne" class="button Products_btn">
+                    +
                     </button>
                     </div>
                 </article>
-                <article class="Products_card">
+                <article class="Products_card shir">
                     <div class="Products_img">
                         <img src="./img/img/featured2.png" alt="Shirts" class="Products_img1">
                     </div>
@@ -122,11 +145,11 @@
                         </h2>
                         <h3>Shirts</h3>
                         <button class="button Products_btn">
-                            <p>+</p>
+                        +
                         </button>
                     </div>
                 </article>
-                <article class="Products_card">
+                <article class="Products_card swea">
                     <div class="Products_img">
                         <img src="./img/img/featured3.png" alt="Sweatshirts" class="Products_img1">
                     </div>
@@ -136,11 +159,11 @@
                         </h2>
                         <h3>Sweatshirts</h3>
                         <button class="button Products_btn">
-                            <p>+</p>
+                        +
                         </button>
                     </div>
-                </article>
-            </div>
+                </article> -->
+            </div> 
         </div>
     </section>
 </main>
@@ -201,6 +224,13 @@
     </div>
     <span class="footer_copyright">© ACADEMLO. ALL rights reserved</span>
 </footer>
-<script src="main.js"></script>   
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js" 
+        integrity="sha512-nKZDK+ztK6Ug+2B6DZx+QtgeyAmo9YThZob8O3xgjqhw2IVQdAITFasl/jqbyDwclMkLXFOZRiytnUrXk/PM6A==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="./js/switch.js"></script>
+<script src="./js/mixitup.js" type="module"></script>
+<script src="./main.js" type="module"></script>   
 </body>
 </html>
